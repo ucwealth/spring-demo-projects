@@ -7,7 +7,7 @@
 <title>MySchool Manager</title>
 </head>
 <body>
-
+<br><br>
 	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
 	  <!-- Brand -->
 	  <a class="navbar-brand" href="#">MySchool Manager</a>
@@ -61,6 +61,9 @@
 			<td th:text = "${student.firstName}"></td>
 			<td th:text = "${student.lastName}"></td>
 			<td th:text = "${student.email}"></td>
+			<td>
+				<a th:href="@{/students/edit/{id}(id=${student.id)}" class="btn btn-primary">Update</a>
+			</td>
 		</tr>
 		</tbody>
 		</table>
