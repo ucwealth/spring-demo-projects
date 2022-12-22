@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +19,7 @@ import com.ucwealth.sms.service.StudentService;
 public class StudentController {
 	@Autowired
 	private StudentService studentService;
-	
+	 
 	// handler method to list students and return model and view
 	@GetMapping("/students")
 	public String listStudents(Model model) {
@@ -56,6 +57,12 @@ public class StudentController {
 		existingStudent.setEmail(student.getEmail());
 		// save updated student object
 		studentService.updateStudent(existingStudent);
+		return "redirect:/students";
+	}
+	
+	@DeleteMapping("/students/{id}")
+	public String deleteStudent(@ModelAttribute("student") Student student, @PathVariable Long id, Model model){
+		studentService.deleteStudentById(id);
 		return "redirect:/students";
 	}
 	
