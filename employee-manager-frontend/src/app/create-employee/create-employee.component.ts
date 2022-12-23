@@ -11,6 +11,7 @@ import { EmployeeService } from '../employee.service';
 export class CreateEmployeeComponent {
   employee: Employee = new Employee();
   constructor(private employeeService: EmployeeService, private router: Router) {}
+
   saveEmployee() {
     this.employeeService.createEmployee(this.employee).subscribe(data => {
       console.log("Data", data)
@@ -18,11 +19,14 @@ export class CreateEmployeeComponent {
     },
       (error: any) => console.log(error));
   }
+
   goToEmployeeList() {
     this.router.navigate(['/employees']);
   }
+
   onSubmit() {
     console.log(this.employee);
     this.saveEmployee()
   }
+  
 }

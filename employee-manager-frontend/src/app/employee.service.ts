@@ -18,4 +18,8 @@ export class EmployeeService {
   createEmployee(employee: Employee): Observable<Object>{
     return this.httpClient.post(`${this.baseUrl}`, employee);
   }
+
+  updateEmployee(employee: Employee): Observable<Object>{
+    return this.httpClient.post(`${this.baseUrl}`, employee);
+  }
 }
