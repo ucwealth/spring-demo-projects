@@ -35,4 +35,8 @@ export class EmployeeListComponent {
     })
   }
 
+  viewEmployee(id: number | undefined) {
+    this.router.navigate(['/view-employee', id])
+  }
+
 }
