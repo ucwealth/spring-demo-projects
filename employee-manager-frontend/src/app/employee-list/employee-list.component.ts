@@ -28,4 +28,11 @@ export class EmployeeListComponent {
     this.router.navigate(['update-employee', id])
   }
 
+  deleteEmployee(id: number|undefined) {
+    this.employeeService.deleteEmployee(id).subscribe(data => {
+      console.log(data)
+      this.getEmployees()
+    })
+  }
+
 }
