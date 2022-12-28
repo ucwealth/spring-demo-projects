@@ -20,6 +20,11 @@ public class UserController {
 		this.userService = userService;
 	}
 	
+	@ModelAttribute("user")
+	public UserRegistrationDto userRegistrationDto() {
+		return new UserRegistrationDto(); //Returns empty user object
+	}
+	
 	@GetMapping
 	public String getRegistrationForm() {
 		return "registration";
